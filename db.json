@@ -1,9 +1,14 @@
 {
     "users":[
-        {"id":"1","name":"A","email":"a@a.com","age":23},
-        {"id":"2","name":"B","email":"b@b.com","age":24},
-        {"id":"3","name":"C","email":"c@c.com","age":25},
-        {"id":"4","name":"D","email":"d@d.com","age":26}
+        {"id":"1","name":"A","email":"a@a.com","age":23,"companyId":"1"},
+        {"id":"2","name":"B","email":"b@b.com","age":24,"companyId":"3"},
+        {"id":"3","name":"C","email":"c@c.com","age":25,"companyId":"2"},
+        {"id":"4","name":"D","email":"d@d.com","age":26,"companyId":"1"}
+    ],
+    "companies":[
+        {"id":"1","name":"Apple","description":"mac"},
+        {"id":"2","name":"Windows","description":"windows"},
+        {"id":"3","name":"Google","description":"android"}
     ]
 }
 
