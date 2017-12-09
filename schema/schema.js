@@ -17,14 +17,16 @@
     }
     # This type specifies the entry points into our API. 
     type Query {
-        users: [User]    # "[]" means this is a list of channels
+        users: [User]    # "[]" means this is a list of users
         user(id: String!): User
+        companies: [Company]    
+        company(id: String!): Company
     }
 
     # The mutation root type, used to define all mutations.
     type Mutation {
         # A mutation to add a new channel to the list of channels
-        addUser(name: String!,email: String!,age: Int!): User
+        addUser(name: String!,email: String!,age: Int!,companyId:Int): User
     }
     `;
 
