@@ -8,13 +8,14 @@ const typeDefs = require('./schema/schema');
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 const app = express();
 
+const PORT = 8000;
 app.use('/graphql',new expressGraphQL({
     schema,   //that means schema:schema
     graphiql:true
 }));
 
-app.listen(4000, () => {
-    console.log('Example app listening on port 4000!');
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}!`);
 });
 
 app.get('/', (req, res) => {
