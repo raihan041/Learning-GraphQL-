@@ -1,6 +1,12 @@
 // app/src/resolvers.js
 const axios = require('axios');
 
+const {PubSub } = require('graphql-subscriptions');
+
+const pubsub = new PubSub ();
+
+const USER_ADDED = 'user_added';
+
 const resolvers = {
     User:
     {
@@ -36,7 +42,15 @@ const resolvers = {
     },
     Mutation: {
       addUser: (root, {name,email,age,companyId}) => {
-        return axios.post('http://localhost:3000/users',{name,email,age,companyId}).then(res => res.data);
+        const userAdded =  axios.post('http://localhost:3000/users',{name,email,age,companyId}).then(res => res.data);
+        pubsub.publish(USER_ADDED, { userAdded });
+
+        return userAdded;
+      },
+    },
+    Subscription: {
+      userAdded: {
+        subscribe: () => pubsub.asyncIterator(USER_ADDED),
       },
     },
   };

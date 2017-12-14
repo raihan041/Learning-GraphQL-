@@ -28,6 +28,10 @@
         # A mutation to add a new channel to the list of channels
         addUser(name: String!,email: String!,age: Int!,companyId:Int): User
     }
+
+    type Subscription {
+        userAdded: User!
+    }
     `;
 
     // const schemaApollo = makeExecutableSchema({ typeDefs, resolvers });
